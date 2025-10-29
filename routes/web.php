@@ -11,28 +11,28 @@ Route::get('/', function () {
 // });
 
 Route::get('/admin', function () {
-    return view('admin');
-})->middleware('role:SuperAdmin');
+    return view('welcome');
+})->middleware(['auth', 'role:SuperAdmin']);
 
 Route::get('/schooladmin', function () {
-    return view('schooladmin');
-})->middleware('role:SchoolAdmin');
+    return view('home');
+})->middleware(['auth', 'role:SchoolAdmin']);
 
 Route::get('/teacher', function () {
-    return view('teacher');
-})->middleware('role:Teacher');
+    return view('home');
+})->middleware(['auth', 'role:Teacher']);
 
 Route::get('/student', function () {
-    return view('student');
-})->middleware('role:Student');
+    return view('home');
+})->middleware(['auth', 'role:Student']);
 
 Route::get('/parent', function () {
-    return view('parent');
-})->middleware('role:Parent');
+    return view('home');
+})->middleware(['auth', 'role:Parent']);
 
 Route::get('/bursar', function () {
-    return view('bursar');
-})->middleware('role:Bursar');
+    return view('home');
+})->middleware(['auth', 'role:Bursar']);
 
 Auth::routes();
 
